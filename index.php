@@ -3,34 +3,16 @@ body { background-color:#ccc; color:#333; }
 </style></head><body>
 <?php
 
+// FTX Account To Spread Sheet
+// Version 1.0
+// https://github.com/tom9000/FTX-Account-To-Spread-Sheet
+
 // SET UP CCXT
 date_default_timezone_set('UTC');
-include "../ccxt/ccxt.php";
+include 'ccxt/ccxt.php';
 //var_dump (\ccxt\Exchange::$exchanges); // print a list of all available exchange classes for test
 
-// SET UP EXCHANGE CONNECTION
-$exchange_id = 'ftx';
-$exchange_class = "\\ccxt\\$exchange_id";
-// TO MAIN ACCOUNT
-$exchange = new $exchange_class(array(
-    'apiKey' => 'FTX-READ-ONLY-API-KEY-MAIN-ACCOUNT',
-    'secret' => 'FTX-READ-ONLY-API-SECRET-MAIN-ACCOUNT',
-));
-// AND ANY SUB ACCOUNTS
-$exchange2 = new $exchange_class(array(
-	// https://www.freqtrade.io/en/stable/exchanges/#using-subaccounts
-	// https://github.com/ccxt/ccxt/issues/6513
-	'headers' => array(
-		'FTX-SUBACCOUNT' => 'SUB-ACCOUNT-NAME',),
-    'apiKey' => 'FTX-READ-ONLY-API-KEY-SUB-ACCOUNT',
-    'secret' => 'FTX-READ-ONLY-API-SECRET-SUB-ACCOUNT',
-));
-$exchange3 = new $exchange_class(array(
-	'headers' => array(
-		'FTX-SUBACCOUNT' => 'SUB-ACCOUNT-NAME',),
-    'apiKey' => 'FTX-READ-ONLY-API-KEY-SUB-ACCOUNT',
-    'secret' => 'FTX-READ-ONLY-API-SECRET-SUB-ACCOUNT',
-));
+include 'account.php';
 
 // NEEDED DUE TO AN ISSUE WITH PHP 7 AND MAC OS
 function json ($data, $params = array ()) {
@@ -93,7 +75,7 @@ writeBalances('ETH','total');
 
 
 
-echo('<tr><td></td></tr>');
+echo('<tr><td>&nbsp;</td></tr>');
 
 // WRITING DATA FOR PERPS AND FUTURES POSITIONS
 function writePosition($ticker,$account){
@@ -188,7 +170,7 @@ writePosition('DEFI-PERP','1');
 
 
 
-echo('<tr><td></td></tr>');
+echo('<tr><td>&nbsp;</td></tr>');
 
 
 
@@ -215,7 +197,7 @@ writePosition('MID-PERP','2');
 
 
 
-echo('<tr><td></td></tr>');
+echo('<tr><td>&nbsp;</td></tr>');
 
 
 
@@ -236,8 +218,8 @@ function var_dump_pre($mixed = null) {
 	global $acct, $acct2, $acct3;
 	global $test;
 	echo '<pre>';
-	var_dump($pos1);
-//	var_dump($acct);
+//	var_dump($pos1);
+	var_dump($acct);
 //	global $subbals;
 //	print_r(array_keys($balance, 1));
 	echo '</pre>';

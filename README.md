@@ -25,9 +25,16 @@ PHP running on local machine.
 How to install PHP here. Windows, Mac and others.
 https://www.php.net/manual/en/install.php
 
+## INSTALL CCXT
+
+Get CCXT and install it where you want to run it.
+
+https://docs.ccxt.com/en/latest/install.html
+https://github.com/ccxt/ccxt
+
 ## RUN THE SCRIPT AS A WEB PAGE ON LOCAL WEB SERVER
 
-Download the index.php script and put it in a folder on your machine where you want to run it.
+Download index.php and account.php scripts and put them in folder above where you put CCXT.
 
 Open a terminal / shell window and CD to the directory where you put the script.
 
