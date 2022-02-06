@@ -86,7 +86,7 @@ writeAccounts('collateral');
 writeAccounts('freeCollateral');
 writeAccounts('totalPositionSize');
 
-// CHANGE COIN BALANCES AS NEEDED
+// CHANGE OR ADD COIN BALANCES AS NEEDED
 writeBalances('USD','total');
 writeBalances('BTC','total');
 writeBalances('ETH','total');
