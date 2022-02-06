@@ -12,6 +12,7 @@ date_default_timezone_set('UTC');
 include 'ccxt/ccxt.php';
 //var_dump (\ccxt\Exchange::$exchanges); // print a list of all available exchange classes for test
 
+// ADD YOUR FTX API KEYS INTO THIS FILE
 include 'account.php';
 
 // NEEDED DUE TO AN ISSUE WITH PHP 7 AND MAC OS
