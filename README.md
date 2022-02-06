@@ -38,11 +38,24 @@ Loading the page should get data from the exchange and print it out in the page:
 
 http://localhost:8000/
 
+## INTO MICROSOFT EXCEL VIA WEB QUERY
+
+Tested on Mac Excel v16.57
+
+Go To: Menu: Data: Get External Data: Run Web Query
+
+Make a copy of the SampleWebQuery01.iqy file, or just modify the existing one.
+
+Change the web address to the root of your local web server, that was set up previously.
+
+http://localhost:8000/
+
 ## CREATE A TUNNEL FROM INTERNET TO THE LOCAL SERVER
 
-Only for Google Sheets, not needed for Excel.
+Only necessary for Google Sheets, not needed for Excel.
 
-Now sign up for a free account at Ngrok.com
+Sign up for a free account at Ngrok.com
+
 Start a tunnel with a terminal command like this:
 
 $ ./ngrok http 8000
@@ -66,18 +79,6 @@ C1: Create a tick box using Menu: Data: Data Validation.
 Add this formula to cell A2. Data will populate below. When you tick or untick the box, the data will be refreshed.
 
 =IMPORTHTML(CONCATENATE(A1,B1,C1), "table", 1)
-
-## INTO MICROSOFT EXCEL VIA WEB QUERY
-
-Tested on Mac Excel v16.57
-
-Go To: Menu: Data: Get External Data: Run Web Query
-
-Make a copy of the SampleWebQuery01.iqy file, or just modify the existing one.
-
-Change the web address to the root of your local web server, that was set up previously.
-
-http://localhost:8000/
 
 ## License
 
