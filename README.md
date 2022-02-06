@@ -38,7 +38,7 @@ Loading the page should get data from the exchange and print it out in the page:
 
 http://localhost:8000/
 
-## INTO MICROSOFT EXCEL VIA WEB QUERY
+## PULL DATA INTO MICROSOFT EXCEL VIA WEB QUERY
 
 Tested on Mac Excel v16.57
 
@@ -66,7 +66,7 @@ Forwarding https://eabb-89-38-69-33.ngrok.io -> http://localhost:8000
 
 Leave this terminal window running in the background.
 
-## INTO GOOGLE SHEETS VIA IMPORTHTML
+## PULL DATA INTO GOOGLE SHEETS VIA IMPORTHTML
 
 In Google Sheets, create a new sheet and add the following cells:
 
