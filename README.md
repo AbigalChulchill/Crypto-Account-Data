@@ -40,6 +40,8 @@ http://localhost:8000/
 
 ## CREATE A TUNNEL FROM INTERNET TO THE LOCAL SERVER
 
+Only needed for Google Sheets, not for Excel.
+
 Now sign up for a free account at Ngrok.com
 Start a tunnel with a terminal command like this:
 
@@ -71,7 +73,11 @@ Tested on Mac Excel v16.57
 
 Go To: Menu: Data: Get External Data: Run Web Query
 
-Make a copy of the SampleWebQuery01.iqy file and modify it to add the Ngrok address
+Make a copy of the SampleWebQuery01.iqy file, or just modify the existing one.
+
+Change the web address to the root of your local web server, that was set up previously.
+
+http://localhost:8000/
 
 ## License
 
