@@ -1,4 +1,4 @@
-# Ftx Account To Spread Sheet
+# FTX Account To Spread Sheet
 
 A script to pull account and position data from FTX exchange into a spread sheet.
 
