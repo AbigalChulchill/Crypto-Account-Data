@@ -16,6 +16,8 @@ Data can be pulled in from main account and sub accounts.
 
 The script runs on local machine. Using CCXT crypto library and running in PHP.
 
+Should also be possible to run on a remote web server, but this has not been tested.
+
 ## HOW TO
 
 ## INSTALL CCXT
@@ -32,7 +34,7 @@ PHP can be installed on Windows, Mac and others from this link.
 
 https://www.php.net/manual/en/install.php
 
-You may be able to run everything on your web server. Then PHP would likely already be installed.
+Most web servers would already have PHP installed.
 
 ## RUN THE SCRIPT VIA A LOCAL WEB SERVER
 
@@ -68,7 +70,7 @@ http://localhost:8000/
 
 ## CREATE A TUNNEL FROM INTERNET TO THE LOCAL SERVER
 
-Only necessary for Google Sheets and running scripts locally. Not needed for Excel.
+This is not needed for Excel. Only necessary when using Google Sheets and running on a local server.
 
 Sign up for a free account at Ngrok.com
 
