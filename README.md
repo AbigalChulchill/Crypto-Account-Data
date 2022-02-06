@@ -33,7 +33,7 @@ https://docs.ccxt.com/en/latest/install.html
 
 https://github.com/ccxt/ccxt
 
-## RUN THE SCRIPT AS A WEB PAGE ON LOCAL WEB SERVER
+## RUN SCRIPT ON A LOCAL WEB SERVER
 
 Download index.php and account.php and put them next to CCXT folder.
 
@@ -55,7 +55,7 @@ Loading this page should get data from the exchange and show it in the web brows
 
 ## PULL DATA INTO MICROSOFT EXCEL VIA WEB QUERY
 
-Tested on Mac Excel v16.57
+This was tested on Mac Excel v16.57
 
 Go To: Menu: Data: Get External Data: Run Web Query
 
@@ -75,11 +75,11 @@ Start a tunnel with a terminal command like this:
 
 $ ./ngrok http 8000
 
-The window will show you the external address for example:
+Ngrok will now show you the external address for example:
 
 Forwarding https://eabb-89-38-69-33.ngrok.io -> http://localhost:8000
 
-Leave this terminal window running in the background.
+Leave this terminal window open and running in the background.
 
 ## PULL DATA INTO GOOGLE SHEETS VIA IMPORTHTML
 
@@ -89,13 +89,13 @@ In cell A1: The address provided by ngrok service like https://d399-185-99-252-2
 
 In cell B1: Type the following: ?a=
 
-This adds an arbitrary variable to the URL, which can be changed to cause a refresh
+This adds an arbitrary variable to the URL, which is used to refresh the data.
 
 In cell C1: Create a tick box using Menu: Data: Data Validation.
 
 In cell A2: Add this formula: =IMPORTHTML(CONCATENATE(A1,B1,C1), "table", 1)
 
-The data will populate starting from cell A2.
+The data table will populate down from A2.
 
 When you tick or untick the box, the data will be refreshed.
 
