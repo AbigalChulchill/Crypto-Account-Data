@@ -22,41 +22,35 @@ function json ($data, $params = array ()) {
 	$encoded = json_encode ($data, $flags);
 	return json_decode ($encoded, TRUE);
 }
-// GET DATA FROM THE EXCHANGE AND PROCESS IT
-$acct = json($exchange->private_get_account());
-$acct2 = json($exchange2->private_get_account());
-$acct3 = json($exchange3->private_get_account());
-$bals = json($exchange->fetch_balance());
-$bals2 = json($exchange2->fetch_balance());
-$bals3 = json($exchange3->fetch_balance());
-$pos1 = json($exchange->fetch_positions());
-$pos2 = json($exchange2->fetch_positions());
-$pos3 = json($exchange3->fetch_positions());
 
-// DATA IN A TABLE, ALLOWS IMPORT IN A SINGLE CALL
+// IF YOU DON'T HAVE SUB ACCOUNTS, THEN COMMENT OR DELETE THESE LINES
+$acct = json($exchange->private_get_account()); // MAIN ACCOUNT
+$acct2 = json($exchange2->private_get_account()); // SUB ACCOUNT: 2
+$acct3 = json($exchange3->private_get_account()); // SUB ACCOUNT: 3
+$bals = json($exchange->fetch_balance()); // MAIN ACCOUNT
+$bals2 = json($exchange2->fetch_balance()); // SUB ACCOUNT: 2
+$bals3 = json($exchange3->fetch_balance()); // SUB ACCOUNT: 3
+$pos1 = json($exchange->fetch_positions()); // MAIN ACCOUNT
+$pos2 = json($exchange2->fetch_positions()); // SUB ACCOUNT: 2
+$pos3 = json($exchange3->fetch_positions()); // SUB ACCOUNT: 3
+
 echo('<table>');
 
-// WRITE ACCOUNT SUMMARIES FOR MAIN ACCOUNT AND 2 SUB ACCOUNTS
+// IF YOU DON'T HAVE SUB ACCOUNTS, THEN COMMENT OR DELETE THESE LINES
 function writeAccounts($which){
 	global $acct, $acct2, $acct3;
 	echo('<tr><td>'.$which.': </td>');
-	// MAIN ACCOUNT
-	echo('<td>'.$acct['result'][$which].'</td>');
-	// SUB ACCOUNT 2
-	echo('<td>'.$acct2['result'][$which].'</td>');
-	// SUB ACCOUNT 3
-	echo('<td>'.$acct3['result'][$which].'</td>');
+	echo('<td>'.$acct['result'][$which].'</td>'); // MAIN ACCOUNT
+	echo('<td>'.$acct2['result'][$which].'</td>'); // SUB ACCOUNT: 2
+	echo('<td>'.$acct3['result'][$which].'</td>'); // SUB ACCOUNT: 3
 	echo('</tr>');
 }
 function writeBalances($ticker,$which){
 	global $bals, $bals2, $bals3;
 	echo('<tr><td>'.$ticker.' '.$which.'</td>');
-	// MAIN ACCOUNT
-	echo('<td>'.$bals[$ticker][$which].'</td>');
-	// SUB ACCOUNT 2
-	echo('<td>'.$bals2[$ticker][$which].'</td>');
-	// SUB ACCOUNT 3
-	echo('<td>'.$bals3[$ticker][$which].'</td>');
+	echo('<td>'.$bals[$ticker][$which].'</td>'); // MAIN ACCOUNT
+	echo('<td>'.$bals2[$ticker][$which].'</td>'); // SUB ACCOUNT: 2
+	echo('<td>'.$bals3[$ticker][$which].'</td>'); // SUB ACCOUNT: 3
 	echo('</tr>');
 }
 
@@ -76,8 +70,9 @@ writeBalances('ETH','total');
 
 
 echo('<tr><td>&nbsp;</td></tr>');
+echo('<tr><td>&nbsp;</td></tr>');
+echo('<tr><td>&nbsp;</td></tr>');
 
-// WRITING DATA FOR PERPS AND FUTURES POSITIONS
 function writePosition($ticker,$account){
 	global $pos1, $pos2, $pos3;
 	$lPos = ${'pos' . $account};
@@ -92,7 +87,7 @@ function writePosition($ticker,$account){
 
 
 
-			// CHANGE, ADD OR REMOVE DATA POINTS AS NEEDED
+			// CHANGE, ADD OR REMOVE DATA POINTS FOR POSITIONS
 			writeTd($ticker,$lPos,$i,1,'markPrice');
 			writeTd($ticker,$lPos,$i,2,'recentAverageOpenPrice');
 			writeTd($ticker,$lPos,$i,1,'entryPrice');
@@ -134,12 +129,14 @@ function writeTd($ticker,$lPos,$i,$type,$info){
 	echo('<td>'.${$info}.'</td>');
 }
 
+
 writePosition('header','1');
 
 
 
+// CHANGE OR ADD POSITIONS BY TICKER
+
 // MAIN ACCOUNT POSITIONS
-// CHANGE, ADD OR REMOVE TICKERS AS NEEDED
 writePosition('BTC-PERP','1');
 writePosition('BTC-20210625','1');
 writePosition('ETH-PERP','1');
@@ -174,8 +171,7 @@ echo('<tr><td>&nbsp;</td></tr>');
 
 
 
-// SUB ACCOUNT POSITIONS
-// CHANGE, ADD OR REMOVE TICKERS AS NEEDED
+// SUB ACCOUNT 2 POSITIONS
 writePosition('BTC-PERP','2');
 writePosition('BTC-0325','2');
 writePosition('ETH-PERP','2');
@@ -201,8 +197,8 @@ echo('<tr><td>&nbsp;</td></tr>');
 
 
 
-// SUB ACCOUNT POSITIONS
-// CHANGE, ADD OR REMOVE TICKERS AS NEEDED
+// SUB ACCOUNT 3 POSITIONS
+writePosition('BTC-PERP','3');
 writePosition('NEAR-PERP','3');
 
 

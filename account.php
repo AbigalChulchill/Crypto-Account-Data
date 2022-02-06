@@ -8,7 +8,7 @@ $exchange = new $exchange_class(array(
     'apiKey' => 'FTX-READ-ONLY-API-KEY-MAIN-ACCOUNT',
     'secret' => 'FTX-READ-ONLY-API-SECRET-MAIN-ACCOUNT',
 ));
-// AND ANY SUB ACCOUNTS
+// AND SUB ACCOUNTS
 $exchange2 = new $exchange_class(array(
 	'headers' => array(
 		'FTX-SUBACCOUNT' => 'SUB-ACCOUNT-NAME',),
