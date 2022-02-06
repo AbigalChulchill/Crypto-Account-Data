@@ -1,6 +1,6 @@
 # FTX Account To Spread Sheet
 
-A script to pull account and position data from FTX exchange into a spread sheet.
+A script to pull account summary and positions from FTX into a spread sheet.
 
 Run the script in a local web server.
 
