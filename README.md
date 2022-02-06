@@ -2,19 +2,19 @@
 
 A script to pull account summary and positions from FTX into a spread sheet.
 
-Provides quick access to data that is not shown on the FTX web site, including:
-
-- total account position size (total of all futures and margin borrows)
-- total account collateral (accounting for coin collateral fraction)
-- total realized PnL for perps and futures
-
 Works in Excel and Google Sheets.
+
+Provides quick access to all data. Includes data that is not shown on the FTX web site, such as:
+
+- total account position size (the total of all futures and margin borrows for the account)
+- total account collateral (total for the account, net of coin collateral fractions)
+- total historic realized PnL for perps and futures
 
 Can be customised to change the account data and tickers imported.
 
-Data can be pulled from main account and sub accounts.
+Data can be pulled in from main account and sub accounts.
 
-The script runs in a local web server. Data is served in an HTML table, for quick import.
+The script runs on local machine. Using CCXT crypto library and running in PHP.
 
 ## HOW TO
 
@@ -32,7 +32,7 @@ https://docs.ccxt.com/en/latest/install.html
 
 https://github.com/ccxt/ccxt
 
-## RUN SCRIPT ON A LOCAL WEB SERVER
+## RUN THE SCRIPT VIA A LOCAL WEB SERVER
 
 Download index.php and account.php and put them next to CCXT folder.
 
