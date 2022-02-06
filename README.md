@@ -27,16 +27,17 @@ Open a terminal / shell window and CD to the directory where you want to run the
 
 $ cd /Users/mac/Desktop/folder/
 
-Start the PHP built in web server using this command:
+Start the basic web server that is built–in to PHP using this command:
 
 $ php -S localhost:8000
 
 Leave the window running in the background.
 
 Now test the script, it should run in a web browser at this address.
-Loading the page should get data from the exchange and print it out in the page:
 
 http://localhost:8000/
+
+Loading this page should get data from the exchange and show it in the web browser.
 
 ## PULL DATA INTO MICROSOFT EXCEL VIA WEB QUERY
 
@@ -46,7 +47,7 @@ Go To: Menu: Data: Get External Data: Run Web Query
 
 Make a copy of the SampleWebQuery01.iqy file, or just modify the existing one.
 
-Change the web address to the root of your local web server, that was set up previously.
+Change the web address to the root of your local web server that is running.
 
 http://localhost:8000/
 
