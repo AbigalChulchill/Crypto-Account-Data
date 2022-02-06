@@ -1,4 +1,4 @@
-# Ftx Account To Sheet
+# Ftx Account To Spread Sheet
 
 A web server script to pull in account and position data from FTX exchange.
 
