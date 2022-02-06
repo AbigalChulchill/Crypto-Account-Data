@@ -4,7 +4,7 @@ A script to pull account and position data from FTX exchange into a spread sheet
 
 Run the script in a local web server.
 
-Data is displayed in an HTML table, can be easily pulled into Google Sheets.
+Data is displayed in an HTML table, can be easily pulled into Excel and Google Sheets.
 
 Data can be pulled from FTX main account and sub accounts.
 
