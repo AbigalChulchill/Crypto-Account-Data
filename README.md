@@ -8,16 +8,21 @@ Data is pulled from main account and sub accounts.
 
 ## HOW TO
 
-## REQUIREMENT
+## REQUIRED
 
 PHP running on local machine.
 
-RUN THE SCRIPT AS A WEB PAGE ON LOCAL WEB SERVER
+How to install PHP here. Windows, Mac and others.
+https://www.php.net/manual/en/install.php
 
-Open a Terminal / shell window and CD to the directory where you want to run this script.
+## RUN THE SCRIPT AS A WEB PAGE ON LOCAL WEB SERVER
+
+Get the index.php script and put it in a folder on your machine where you want to run it.
+
+Open a Terminal / shell window and CD to the directory where you want to run the script.
 $ cd /Users/mac/Desktop/folder/
 
-Start PHP built in web server using this command:
+Start the PHP built in web server using this command:
 $ php -S localhost:8000
 Leave this terminal window running in the background.
 
