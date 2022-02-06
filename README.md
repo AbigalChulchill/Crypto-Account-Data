@@ -30,6 +30,7 @@ https://www.php.net/manual/en/install.php
 Get CCXT and install it where you want to run it.
 
 https://docs.ccxt.com/en/latest/install.html
+
 https://github.com/ccxt/ccxt
 
 ## RUN THE SCRIPT AS A WEB PAGE ON LOCAL WEB SERVER
