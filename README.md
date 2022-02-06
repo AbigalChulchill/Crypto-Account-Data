@@ -8,6 +8,8 @@ Data is displayed in an HTML table, can be easily pulled into Excel and Google S
 
 Data can be pulled from FTX main account and sub accounts.
 
+Can be customised to change tickers and data imported.
+
 ## HOW TO
 
 ## REQUIRED

@@ -51,7 +51,7 @@ $pos1 = json($exchange->fetch_positions());
 $pos2 = json($exchange2->fetch_positions());
 $pos3 = json($exchange3->fetch_positions());
 
-// DATA IN A TABLE, SO WE CAN MAKE A SINGLE CALL IN SHEETS, TO PULL ALL DATA INTO ROWS AND COLUMNS
+// DATA IN A TABLE, ALLOWS IMPORT IN A SINGLE CALL
 echo('<table>');
 
 // WRITE ACCOUNT SUMMARIES FOR MAIN ACCOUNT AND 2 SUB ACCOUNTS
@@ -78,6 +78,9 @@ function writeBalances($ticker,$which){
 	echo('</tr>');
 }
 
+
+
+// CHANGE OR ADD FOLLOWING DATA POINTS AS NEEDED
 writeAccounts('collateral');
 writeAccounts('freeCollateral');
 writeAccounts('totalPositionSize');
@@ -85,9 +88,11 @@ writeBalances('USD','total');
 writeBalances('BTC','free');
 writeBalances('ETH','free');
 
+
+
 echo('<tr><td></td></tr>');
 
-// WRITE DATA FOR PERPS AND FUTURES POSITIONS
+// WRITING DATA FOR PERPS AND FUTURES POSITIONS
 function writePosition($ticker,$account){
 	global $pos1, $pos2, $pos3;
 	$lPos = ${'pos' . $account};
@@ -99,7 +104,10 @@ function writePosition($ticker,$account){
 			if($ticker=='header'){$ticker = '-';}			
 			echo('<td>'.$account.'-'.$ticker.'</td>');
 
-			// ADD OR REMOVE DATA POINTS
+
+
+
+			// CHANGE, ADD OR REMOVE DATA POINTS AS NEEDED
 			writeTd($ticker,'markPrice',$lPos,$i,1);
 			writeTd($ticker,'recentAverageOpenPrice',$lPos,$i,2);
 			writeTd($ticker,'entryPrice',$lPos,$i,1);
@@ -122,6 +130,9 @@ function writePosition($ticker,$account){
 			writeTd($ticker,'longOrderSize',$lPos,$i,2);
 			writeTd($ticker,'shortOrderSize',$lPos,$i,2);
 
+
+
+
 			echo('</tr>');
 			if($ticker=='-'){
 				break;
@@ -140,8 +151,10 @@ function writeTd($ticker,$info,$lPos,$i,$type){
 
 writePosition('header','1');
 
+
+
 // MAIN ACCOUNT POSITIONS
-// ADD WHATEVER TICKERS NEEDED
+// CHANGE, ADD OR REMOVE TICKERS AS NEEDED
 writePosition('BTC-PERP','1');
 writePosition('BTC-20210625','1');
 writePosition('ETH-PERP','1');
@@ -170,10 +183,14 @@ writePosition('MID-PERP','1');
 writePosition('MID-20210625','1');
 writePosition('DEFI-PERP','1');
 
+
+
 echo('<tr><td></td></tr>');
 
+
+
 // SUB ACCOUNT POSITIONS
-// ADD WHATEVER TICKERS NEEDED
+// CHANGE, ADD OR REMOVE TICKERS AS NEEDED
 writePosition('BTC-PERP','2');
 writePosition('BTC-0325','2');
 writePosition('ETH-PERP','2');
@@ -193,16 +210,23 @@ writePosition('ADA-PERP','2');
 writePosition('DOT-PERP','2');
 writePosition('MID-PERP','2');
 
+
+
 echo('<tr><td></td></tr>');
 
+
+
 // SUB ACCOUNT POSITIONS
-// ADD WHATEVER TICKERS NEEDED
+// CHANGE, ADD OR REMOVE TICKERS AS NEEDED
 writePosition('NEAR-PERP','3');
+
+
 
 echo('</table>');
 
 
-// PRINT OUT RAW DATA FOR SETTING UP OR CHECKING EXCHANGE OUTPUT
+
+// PRINT OUT RAW DATA TO CHECK EXCHANGE OUTPUT AVAILABLE
 function var_dump_pre($mixed = null) {
 	global $bals, $bals2, $bals3;
 	global $pos1, $pos2, $pos3;
@@ -217,6 +241,7 @@ function var_dump_pre($mixed = null) {
   return null;
 }
 var_dump_pre();
+
 
 ?>
 </body>
