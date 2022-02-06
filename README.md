@@ -47,7 +47,7 @@ Go To: Menu: Data: Get External Data: Run Web Query
 
 Make a copy of the SampleWebQuery01.iqy file, or just modify the existing one.
 
-Change the web address to the root of your local web server that is running.
+Change the address to your local server that was set up.
 
 http://localhost:8000/
 
