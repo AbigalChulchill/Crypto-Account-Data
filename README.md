@@ -18,12 +18,6 @@ The script runs on local machine. Using CCXT crypto library and running in PHP.
 
 ## HOW TO
 
-## INSTALL PHP
-
-If PHP is not installed on local machine, install it from this link. Windows, Mac and others.
-
-https://www.php.net/manual/en/install.php
-
 ## INSTALL CCXT
 
 Get CCXT and install it where you want to run it.
@@ -31,6 +25,14 @@ Get CCXT and install it where you want to run it.
 https://docs.ccxt.com/en/latest/install.html
 
 https://github.com/ccxt/ccxt
+
+## PHP
+
+PHP can be installed on Windows, Mac and others from this link.
+
+https://www.php.net/manual/en/install.php
+
+You may be able to run everything on your web server. Then PHP would likely already be installed.
 
 ## RUN THE SCRIPT VIA A LOCAL WEB SERVER
 
@@ -66,7 +68,7 @@ http://localhost:8000/
 
 ## CREATE A TUNNEL FROM INTERNET TO THE LOCAL SERVER
 
-Only necessary for Google Sheets, not needed for Excel.
+Only necessary for Google Sheets and running scripts locally. Not needed for Excel.
 
 Sign up for a free account at Ngrok.com
 
