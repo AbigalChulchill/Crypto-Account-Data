@@ -2,6 +2,16 @@
 
 A script to pull account summary and positions from FTX into a spread sheet.
 
+Provides quick access to data that is not shown on the FTX web site.
+
+Including
+
+• total account position size
+• total account collateral
+• total realized PnL for perps and futures
+
+Display and work with the data as needed in a spread sheet.
+
 Works in Excel and Google Sheets.
 
 Can be customised to change the account data and tickers imported.
