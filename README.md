@@ -35,7 +35,7 @@ https://github.com/ccxt/ccxt
 
 ## RUN THE SCRIPT AS A WEB PAGE ON LOCAL WEB SERVER
 
-Download index.php and account.php scripts and put them in folder above where you put CCXT.
+Download index.php and account.php and put them in folder next to folder CCXT.
 
 Open a terminal / shell window and CD to the directory where you put the script.
 
