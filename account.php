@@ -10,8 +10,6 @@ $exchange = new $exchange_class(array(
 ));
 // AND ANY SUB ACCOUNTS
 $exchange2 = new $exchange_class(array(
-	// https://www.freqtrade.io/en/stable/exchanges/#using-subaccounts
-	// https://github.com/ccxt/ccxt/issues/6513
 	'headers' => array(
 		'FTX-SUBACCOUNT' => 'SUB-ACCOUNT-NAME',),
     'apiKey' => 'FTX-READ-ONLY-API-KEY-SUB-ACCOUNT',
