@@ -23,7 +23,7 @@ https://www.php.net/manual/en/install.php
 
 Download the index.php script and put it in a folder on your machine where you want to run it.
 
-Open a terminal / shell window and CD to the directory where you want to run the script.
+Open a terminal / shell window and CD to the directory where you put the script.
 
 $ cd /Users/mac/Desktop/folder/
 
