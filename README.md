@@ -2,13 +2,13 @@
 
 A script to pull account summary and positions from FTX into a spread sheet.
 
-Run the script in a local web server.
+Works in Excel and Google Sheets.
 
-Data is displayed in an HTML table, can be easily pulled into Excel and Google Sheets.
+Can be customised to change the account data and tickers imported.
 
-Data can be pulled from FTX main account and sub accounts.
+Data can be pulled from main account and sub accounts.
 
-Can be customised to change tickers and data imported.
+The script runs in a local web server. Data is served in an HTML table, for quick import.
 
 ## HOW TO
 
