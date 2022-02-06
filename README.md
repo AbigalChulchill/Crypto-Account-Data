@@ -71,15 +71,19 @@ Leave this terminal window running in the background.
 
 In Google Sheets, create a new sheet and add the following cells:
 
-A1: The address provided by ngrok service like https://d399-185-99-252-211.ngrok.io
+In cell A1: The address provided by ngrok service like https://d399-185-99-252-211.ngrok.io
 
-B1: Text as follows: ?arbitrary=
+In cell B1: Type the following: ?a=
 
-C1: Create a tick box using Menu: Data: Data Validation.
+This adds an arbitrary variable to the URL, which can be changed to cause a refresh
 
-Add this formula to cell A2. Data will populate below. When you tick or untick the box, the data will be refreshed.
+In cell C1: Create a tick box using Menu: Data: Data Validation.
 
-=IMPORTHTML(CONCATENATE(A1,B1,C1), "table", 1)
+In cell A2: Add this formula: =IMPORTHTML(CONCATENATE(A1,B1,C1), "table", 1)
+
+The data will populate starting from cell A2.
+
+When you tick or untick the box, the data will be refreshed.
 
 ## License
 
