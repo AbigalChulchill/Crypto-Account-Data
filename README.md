@@ -18,11 +18,10 @@ The script runs in a local web server. Data is served in an HTML table, for quic
 
 ## HOW TO
 
-## REQUIRED
+## INSTALL PHP
 
-PHP running on local machine.
+If PHP is not installed on local machine, install it from this link. Windows, Mac and others.
 
-How to install PHP here. Windows, Mac and others.
 https://www.php.net/manual/en/install.php
 
 ## INSTALL CCXT
