@@ -40,7 +40,7 @@ http://localhost:8000/
 
 ## CREATE A TUNNEL FROM INTERNET TO THE LOCAL SERVER
 
-Only needed for Google Sheets, not for Excel.
+Only for Google Sheets, not needed for Excel.
 
 Now sign up for a free account at Ngrok.com
 Start a tunnel with a terminal command like this:
