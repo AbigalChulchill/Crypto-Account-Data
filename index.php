@@ -23,13 +23,13 @@ $exchange2 = new $exchange_class(array(
 	'headers' => array(
 		'FTX-SUBACCOUNT' => 'SUB-ACCOUNT-NAME',),
     'apiKey' => 'FTX-READ-ONLY-API-KEY-SUB-ACCOUNT',
-    'secret' => 'FTX-READ-ONLY-API-SECRET-MAIN-ACCOUNT',
+    'secret' => 'FTX-READ-ONLY-API-SECRET-SUB-ACCOUNT',
 ));
 $exchange3 = new $exchange_class(array(
 	'headers' => array(
 		'FTX-SUBACCOUNT' => 'SUB-ACCOUNT-NAME',),
-    'apiKey' => 'FTX-READ-ONLY-API-KEY-MAIN-ACCOUNT',
-    'secret' => 'FTX-READ-ONLY-API-SECRET-MAIN-ACCOUNT',
+    'apiKey' => 'FTX-READ-ONLY-API-KEY-SUB-ACCOUNT',
+    'secret' => 'FTX-READ-ONLY-API-SECRET-SUB-ACCOUNT',
 ));
 
 // NEEDED DUE TO AN ISSUE WITH PHP 7 AND MAC OS
@@ -68,7 +68,7 @@ function writeAccounts($which){
 }
 function writeBalances($ticker,$which){
 	global $bals, $bals2, $bals3;
-	echo('<tr><td>'.$ticker.' '.$which.': </td>');
+	echo('<tr><td>'.$ticker.' '.$which.'</td>');
 	// MAIN ACCOUNT
 	echo('<td>'.$bals[$ticker][$which].'</td>');
 	// SUB ACCOUNT 2
@@ -80,13 +80,16 @@ function writeBalances($ticker,$which){
 
 
 
-// CHANGE OR ADD FOLLOWING DATA POINTS AS NEEDED
+// CHANGE ACCOUNT DATA AS NEEDED
+// ALSO AVAILABLE: totalAccountValue, marginFraction, openMarginFraction, etc
 writeAccounts('collateral');
 writeAccounts('freeCollateral');
 writeAccounts('totalPositionSize');
+
+// CHANGE COIN BALANCES AS NEEDED
 writeBalances('USD','total');
-writeBalances('BTC','free');
-writeBalances('ETH','free');
+writeBalances('BTC','total');
+writeBalances('ETH','total');
 
 
 
@@ -108,27 +111,27 @@ function writePosition($ticker,$account){
 
 
 			// CHANGE, ADD OR REMOVE DATA POINTS AS NEEDED
-			writeTd($ticker,'markPrice',$lPos,$i,1);
-			writeTd($ticker,'recentAverageOpenPrice',$lPos,$i,2);
-			writeTd($ticker,'entryPrice',$lPos,$i,1);
-			writeTd($ticker,'recentPnl',$lPos,$i,2);
-			writeTd($ticker,'unrealizedPnl',$lPos,$i,1);
-			writeTd($ticker,'recentBreakEvenPrice',$lPos,$i,2);
-			writeTd($ticker,'realizedPnl',$lPos,$i,2);
+			writeTd($ticker,$lPos,$i,1,'markPrice');
+			writeTd($ticker,$lPos,$i,2,'recentAverageOpenPrice');
+			writeTd($ticker,$lPos,$i,1,'entryPrice');
+			writeTd($ticker,$lPos,$i,2,'recentPnl');
+			writeTd($ticker,$lPos,$i,1,'unrealizedPnl');
+			writeTd($ticker,$lPos,$i,2,'recentBreakEvenPrice');
+			writeTd($ticker,$lPos,$i,2,'realizedPnl');
 
-			writeTd($ticker,'collateralUsed',$lPos,$i,2);
-			writeTd($ticker,'estimatedLiquidationPrice',$lPos,$i,2);
-			writeTd($ticker,'initialMargin',$lPos,$i,1);
-			writeTd($ticker,'initialMarginPercentage',$lPos,$i,1);
+			writeTd($ticker,$lPos,$i,2,'collateralUsed');
+			writeTd($ticker,$lPos,$i,2,'estimatedLiquidationPrice');
+			writeTd($ticker,$lPos,$i,1,'initialMargin');
+			writeTd($ticker,$lPos,$i,1,'initialMarginPercentage');
 
-			writeTd($ticker,'size',$lPos,$i,2);
-			writeTd($ticker,'cumulativeBuySize',$lPos,$i,2);
-			writeTd($ticker,'cumulativeSellSize',$lPos,$i,2);
-			writeTd($ticker,'size',$lPos,$i,2);
-			writeTd($ticker,'side',$lPos,$i,2);
-			writeTd($ticker,'cost',$lPos,$i,2);
-			writeTd($ticker,'longOrderSize',$lPos,$i,2);
-			writeTd($ticker,'shortOrderSize',$lPos,$i,2);
+			writeTd($ticker,$lPos,$i,2,'size');
+			writeTd($ticker,$lPos,$i,2,'cumulativeBuySize');
+			writeTd($ticker,$lPos,$i,2,'cumulativeSellSize');
+			writeTd($ticker,$lPos,$i,2,'size');
+			writeTd($ticker,$lPos,$i,2,'side');
+			writeTd($ticker,$lPos,$i,2,'cost');
+			writeTd($ticker,$lPos,$i,2,'longOrderSize');
+			writeTd($ticker,$lPos,$i,2,'shortOrderSize');
 
 
 
@@ -141,7 +144,7 @@ function writePosition($ticker,$account){
 	$i++;
 	}
 }
-function writeTd($ticker,$info,$lPos,$i,$type){
+function writeTd($ticker,$lPos,$i,$type,$info){
 	if($type==1){${$info} = $lPos[$i][$info];}
 	else{${$info} = $lPos[$i]['info'][$info];}
 	if(!isset(${$info})){${$info} = '0';}
